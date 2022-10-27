@@ -1,20 +1,10 @@
 import React from "react";
-import { useState } from "react";
-import data from "../api/mock-data.json";
 
 export default function Table(props) {
-  const [golf] = useState(data);
   const startRange = props.startRange;
   const endRange = props.endRange;
-
-  let terrein = props.selects;
-  let course;
-  if (isNaN(terrein)) {
-    terrein = 0;
-  }
-  course = golf[terrein].courses[0];
-  const distances = golf[terrein].colours;
-
+  const course = props.course;
+  const distances = props.colours.split(',');
   let pl = props.players;
 
   return (
@@ -35,7 +25,7 @@ export default function Table(props) {
             <tr>
               <td style={{ backgroundColor: tee.toLowerCase() }} key={i}></td>
               {course.holes.slice(startRange, endRange).map((hole, _) => (
-                <td key={hole.number.toString()}>{hole.distances[i]}</td>
+                <td key={hole.number.toString()}>{hole.distances.split(',')[i]}</td>
               ))}
             </tr>
           ))}
@@ -61,7 +51,7 @@ export default function Table(props) {
               ></td>
             ))}
           </tr>
-          <tr>
+          {/* <tr>
             <td width="130px" height="10px">
               {" "}
               <input className="form-control" id="inputs" type="text"></input>
@@ -75,9 +65,10 @@ export default function Table(props) {
                 ></input>
               </td>
             ))}
-          </tr>
+          </tr> */}
 
           {pl.map((_, __) => (
+            
             <tr>
               <td>
                 {" "}

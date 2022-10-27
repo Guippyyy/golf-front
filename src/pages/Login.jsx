@@ -4,6 +4,7 @@ import "../App.css";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
   let navigate = useNavigate();
+
   return (
     <>
       <section className="vh-100">
@@ -84,15 +85,7 @@ export default function Login() {
                 </span>
               </div>
             </div>
-            <div className="col-sm-6 px-0 d-none d-sm-block">
-              <img
-                src="images/happy_gandalf_lotr-1.gif"
-                alt="gandalf"
-                // className="w-100 vh-100"
-                id="mrg"
-                style={{ objectFit: "cover", objectPosition: "left" }}
-              ></img>
-            </div>
+            <div className="col-sm-6 px-0 d-none d-sm-block"></div>
           </div>
         </div>
       </section>

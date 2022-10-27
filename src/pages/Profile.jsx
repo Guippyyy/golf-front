@@ -8,18 +8,18 @@ export default function Profile({ authorized }) {
   return (
     <section style={{ backgroundcolor: "#eee" }}>
       <div className="container py-5">
-        <div class="row">
-          <div class="col">
-            <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+        <div className="row">
+          <div className="col">
+            <nav aria-label="nav-link" className="bg-light rounded-3 p-3 mb-4">
               <ol className="breadcrumb mb-0">
-                <li className="breadcrumb-item">
-                  {/* <a href="#">Home</a> */}
-                </li>
                 <li className="breadcrumb-item">
                   <a href="/">Scorecard</a>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   User Profile
+                </li>
+                <li className="breadcrumb-item" aria-current= "page">
+                  <a href="/history">history</a>
                 </li>
               </ol>
             </nav>
@@ -33,6 +33,7 @@ export default function Profile({ authorized }) {
                 <img
                   src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
                   // src="images/people.svg"
+                  // src="images/helmet-wallpapers-28627-1101838.jpg"
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: "150px" }}
@@ -41,7 +42,7 @@ export default function Profile({ authorized }) {
                 <p className="text-muted mb-1">member</p>
                 <p className="text-muted mb-4">golfclub (name) Belgium</p>
                 <div className="d-flex justify-content-center mb-2">
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" className="btn btn-primary">
                     Follow
                   </button>
                   <button

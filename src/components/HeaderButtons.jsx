@@ -1,65 +1,65 @@
 import React from "react";
 import { useState } from "react";
 import Table from "../components/table";
-import data from "../api/mock-data.json";
 import { useNavigate } from "react-router-dom";
 
-export default function HeaderButtons({ props }) {
+export default function HeaderButtons(props) {
   const [isShown, setIsShown] = useState(true); //btn1
   const [isShown2, setIsShown2] = useState(true); //btn2
+  const [selects, setSelects] = useState(0); //bepaald welke course
+  const [golfData] = useState(props.data);
+  const [players, setPlayers] = useState([{ value: 1, x: "player" }]);
+  const sym = golfData[selects].image;
+  const navigate = useNavigate();
 
-  const [selects, setSelects] = useState(); //bepaald welke course
-  const [golf] = useState(data);
-  const handleClick1 = (event) => {
+  function handleClick1() {
     setIsShown(true);
     setIsShown2(false);
   };
 
-  const handleClick2 = (event) => {
+  function handleClick2() {
     setIsShown(false);
     setIsShown2(true);
   };
 
-  const handleClick3 = (event) => {
+  function handleClick3() {
     setIsShown(true);
     setIsShown2(true);
   };
 
-  const [players, setPlayers] = useState([]);
-
-  const handleClick4 = (event) => {
-    if (players.length === 3) {
-      setPlayers(...players);
-    } else {
+  function handleClick4() {
+    if (players.length < 4) {
       setPlayers([...players, { value: 1, x: "player" }]);
     }
   };
 
-  let icon = selects;
-  let sym;
-  if (isNaN(icon)) {
-    icon = 0;
+  function deletePlayer() {
+    if (players.length > 1) {
+      
+      players.pop();
+      setPlayers([...players]);
+    }
   }
-  sym = golf[icon].image;
-
-  let navigate = useNavigate();
 
   return (
     <>
       <div>
         <div className="box" style={{ backgroundColor: "white" }}>
-          <h1>Guillaume De Craene</h1>
+          <h3>Scorecard</h3>
           <label for="course">select course:</label>
           <select
             // className="form-select"
             aria-label="Default select example"
             onChange={(e) => setSelects(e.target.value)}
           >
-            <option value="0">Waregem</option>
-            <option value="1">Oudenaarde</option>
-            <option value="2">Damme</option>
+          {
+            golfData.map((golf, i) => 
+              <option value={i}>{ golf.name }</option>
+            )
+          }
+            
           </select>
-
+          <div>
           <button
             className="btn btn-info btn-sm"
             id="button"
@@ -89,6 +89,14 @@ export default function HeaderButtons({ props }) {
             Add Players
           </button>
           <button
+            className="btn btn-info btn-sm"
+            id="button"
+            onClick={deletePlayer}
+          >
+            delete
+          </button>
+          
+          <button
             className="btn btn-warning btn-sm"
             id="button"
             onClick={() => {
@@ -97,10 +105,12 @@ export default function HeaderButtons({ props }) {
           >
             Profile
           </button>
+          
           <div className="logos" id="logo-golf">
             <span className="inner">
               <img src={`${sym}`} alt="x" />
             </span>
+          </div>
           </div>
         </div>
         <div>
@@ -108,7 +118,8 @@ export default function HeaderButtons({ props }) {
             <Table
               startRange="0"
               endRange="9"
-              selects={selects * 1}
+              course={golfData[+selects].courses[0]}
+              colours={golfData[+selects].colours}
               players={players}
             />
           )}
@@ -116,7 +127,8 @@ export default function HeaderButtons({ props }) {
             <Table
               startRange="9"
               endRange="18"
-              selects={selects * 1}
+              course={golfData[+selects].courses[0]}
+              colours={golfData[+selects].colours}
               players={players}
             />
           )}
