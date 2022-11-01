@@ -35,3 +35,10 @@ model Hole {
     par Int
     hcp Int
 }
+
+model Score {
+  id Int @id @default(autoincrement())
+  coursID Int
+  scores String
+  result Int
+}

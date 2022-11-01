@@ -1,7 +1,6 @@
 import "./App.css";
-import "./components/table.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import HeaderButtons from "./components/HeaderButtons";
+import ScoreCard from "./components/ScoreCard";
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
 import History from "./pages/History"
@@ -23,7 +22,7 @@ export default function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<HeaderButtons data={golfData} />} />
+          <Route exact path="/" element={<ScoreCard data={golfData} />} />
           <Route
             exact
             path="/Profile"
