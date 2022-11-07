@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ScoreCard from "./components/ScoreCard";
+import ScoreCard from "./pages/ScoreCard";
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
 import History from "./pages/History"
@@ -22,13 +22,13 @@ export default function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/" element={<ScoreCard data={golfData} />} />
+          <Route exact path="/scoreCard" element={<ScoreCard data={golfData} />} />
           <Route
             exact
-            path="/Profile"
+            path="/"
             element={<Profile authorized={true} />}
           />
-          <Route exact path="/History" element ={<History />} />
+          <Route exact path="/History" element ={<History data={golfData}/>} />
           <Route exact path="/Login" element={<Login />} />{" "}
         </Routes>{" "}
       </Router>{" "}

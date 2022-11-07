@@ -41,4 +41,5 @@ model Score {
   coursID Int
   scores String
   result Int
+  createdAt        DateTime           @default(now())
 }

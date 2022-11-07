@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Table from "./table";
-import Header from "./Header";
+import Table from "../components/table";
+import Header from "../components/Header";
 import axios from "axios";
 
 export default function ScoreCard(props) {
@@ -9,7 +9,6 @@ export default function ScoreCard(props) {
   const [isShown2, setIsShown2] = useState(true); //btn2
   const [selects, setSelects] = useState(0);
   const [golfData] = useState(props.data);
-
   const [score, setScore] = useState({
     scores: Array(18).fill(undefined),
   });
@@ -17,7 +16,6 @@ export default function ScoreCard(props) {
   function handleScore(holeNumber, updatedScore) {
     score.scores[holeNumber - 1] = updatedScore;
     setScore(score);
-    // console.log(score.scores);
   }
 
   function handleClick1() {
@@ -39,24 +37,25 @@ export default function ScoreCard(props) {
     setSelects(e.target.value);
   }
 
-  const [data, setData] = useState();
+  const [ setData] = useState();
 
-  async function submit(e) {
-    let arr = [];
-    let x = golfData[+selects].courses[0];
-    x.holes.map((hole) => arr.push(hole.par));
-    let arr2 = [];
-    score.scores.map((score) => arr2.push(score));
-    arr2 = arr2.map((score) => score * 1);
+  async function submit() {
+    let geefPar = [];
+    golfData[+selects].courses[0].holes.map((hole) => geefPar.push(hole.par));
+
+    let pakScore = [];
+    score.scores.map((score) => pakScore.push(score*1));
+
     let arr3 = [];
-    for (let e in arr2) {
-      if (!isNaN(arr2[e])) {
-        arr3.push(arr2[e]);
+    for (let e in pakScore) {
+      if (!isNaN(pakScore[e])) {
+        arr3.push(pakScore[e]);
       }
     }
+    
     let som = 0;
     for (let e = 0; e < arr3.length; e++) {
-      som += arr3[e] - arr[e];
+      som += arr3[e] - geefPar[e];
     }
 
     try {
@@ -73,12 +72,12 @@ export default function ScoreCard(props) {
       console.log(err);
     }
 
-    alert(`you played: ${som}`);
+    prompt(`you played: ${som}`);
   }
 
   return (
     <>
-      <div>
+      <div className="kont">
         <Header
           golfData={golfData}
           handleClick1={handleClick1}
@@ -89,7 +88,7 @@ export default function ScoreCard(props) {
         />
         {isShown && (
           <Table
-            index="1"
+             index="1"
             startRange="0"
             endRange="9"
             course={golfData[+selects].courses[0]}

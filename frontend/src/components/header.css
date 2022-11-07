@@ -1,0 +1,51 @@
+.box3 {
+  -webkit-box-shadow: 31px 10px 24px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 31px 10px 24px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 31px 10px 24px 0px rgba(0, 0, 0, 0.75);
+  border: 1px solid;
+  border-radius: 15px 15px 15px 15px;
+
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  padding: 10px;
+
+  max-width: 1000px;
+  height: 140px;
+
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.logos {
+  max-width: 140px;
+  max-height: 120px;
+}
+
+#logo-golf {
+  max-width: 100%;
+  justify-items: center;
+}
+
+.grid-header-button1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.grid-header-select {
+  width: 20em;
+
+  grid-row: 2;
+  margin-left: 15px;
+}
+
+.grid-header-logo {
+  justify-self: center;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}

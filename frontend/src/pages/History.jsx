@@ -1,70 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect} from "react";
 import "../App.css";
-// import { useNavigate } from "react-router-dom";
+import HistoryField from "../components/HistoryField";
+import { getScores } from "../api/DataFetching"; 
 
-export default function History() {
-    return ( 
+export default function History(props){
+
+  const [golfData] = useState(props.data)
+  const [scoreData, setScoreData] = useState([].reverse())
+  
+
+  useEffect(() => {
+    getScores(setScoreData)
+  }, [])
+  
+  if (scoreData.length === 0) {
+    return <div>loading...</div>
+  }
+
+  return (
     <>
-        
-        <div className="container py-5">
-        
-            <div className="row">
-                <div className="col">
-                <nav aria-label="breadcrumb" className="bg-light rounded-3 p-3 mb-4">
-                <ol className="breadcrumb mb-0">
-                    <li className="breadcrumb-item">
-                        <a href="/">Scorecard</a>
-                    </li>
-                    <li className="breadcrumb-item" aria-current="page">
-                        <a href="/profile"> profile</a>
-                    </li>
-                    <li className="breadcrumb-item active" aria-current= "page">
-                        <a href="/history">history</a>
-                    </li>
-                </ol>
-                </nav>
-                </div>
-            </div>
+      <div className="container py-5">
+        <div className="row">
+          <div className="col">
+            <nav
+              aria-label="breadcrumb"
+              className="bg-light rounded-3 p-3 mb-4"
+            >
+              <ol className="breadcrumb mb-0" id="text">
+                <li className="breadcrumb-item">
+                  <a href="/scoreCard">Scorecard</a>
+                </li>
+                <li className="breadcrumb-item" aria-current="page">
+                  <a href="/"> profile</a>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  <a href="/history">history</a>
+                </li>
+              </ol>
+            </nav>
+            <HistoryField scores={scoreData} golfData={golfData}/>
+          </div>
         </div>
-        <div className="col d-flex justify-content-center">
-        <div className="col-lg-9">
-            <div className="card mb-6">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-5">
-                    <p className="mb-4"></p>
-                  </div>
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0"></p>
-                  </div>
-                </div>
-                <hr></hr>
-                <div className="row">
-                  <div className="col-sm-3">
-                    <p className="mb-0">\</p>
-                  </div>
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0"></p>
-                  </div>
-                </div>
-                <hr></hr>
-                <div className="row">
-                  <div className="col-sm-3">
-                    <p className="mb-0">/</p>
-                  </div>
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">/</p>
-                  </div>
-                </div>
-                <hr></hr>
-                
-                </div>
-                <hr></hr>
-                
-              </div>
-              </div>
-            </div>
-            
-        </>
-    );
+      </div>
+      
+    </>
+  );
 }

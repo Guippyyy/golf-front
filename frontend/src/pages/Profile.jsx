@@ -6,14 +6,14 @@ export default function Profile({ authorized }) {
     return <Navigate to="/login" />;
   }
   return (
-    <section style={{ backgroundcolor: "#eee" }}>
+    <section style={{ backgroundcolor: "#eee" }} id="text">
       <div className="container py-5">
         <div className="row">
           <div className="col">
             <nav aria-label="nav-link" className="bg-light rounded-3 p-3 mb-4">
               <ol className="breadcrumb mb-0">
                 <li className="breadcrumb-item">
-                  <a href="/">Scorecard</a>
+                  <a href="/scoreCard">Scorecard</a>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   User Profile
@@ -26,14 +26,15 @@ export default function Profile({ authorized }) {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row kont">
           <div className="col-lg-4">
             <div className="card mb-4">
               <div className="card-body text-center">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
+                  // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
                   // src="images/people.svg"
                   // src="images/helmet-wallpapers-28627-1101838.jpg"
+                  src="/images/blondes_22.png"
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: "150px" }}

@@ -9,3 +9,12 @@ export function getGolfCourses(callback) {
     callback(res.data)
   })
 }
+
+
+export function getScores(callback) {
+  return axios
+  .get(`${host}/scores`)
+  .then(res => {
+    callback(res.data)
+  })
+}

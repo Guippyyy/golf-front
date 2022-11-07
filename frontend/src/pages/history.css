@@ -1,0 +1,92 @@
+.kont {
+  height: 800px;
+  /* width: 1100px; */
+  margin-left: 0px;
+  margin-right: 10px;
+  /* background-color: aliceblue; */
+  padding: 10px;
+  -webkit-box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.1);
+  scrollbar-color: #512da8 #f5f5f5;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.kont::-webkit-scrollbar {
+  display: none;
+}
+
+.logos2 {
+  max-width: 140px;
+  max-height: 120px;
+  margin-top: 0em;
+  /* border: solid 1px; */
+  /* padding: 35px; */
+}
+
+#logo-golf2 {
+  max-width: 100%;
+  justify-items: center;
+}
+
+.vakken {
+  /* height: 130px; */
+  border: 1px solid;
+  border-radius: 15px 15px 15px 15px;
+
+  margin-top: 20px;
+
+  padding: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+  max-width: 800px;
+  height: 140px;
+
+  display: grid;
+
+  gap: 0rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-vak-logo {
+  justify-self: center;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.grid-vak-date {
+  grid-row-start: 3;
+}
+
+.grid-vak-button {
+  justify-self: end;
+  grid-row-start: 3;
+
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.grid-vak-result {
+  grid-column: 3;
+  justify-self: center;
+}
+
+.grid-vak-naam {
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+@font-face {
+  font-family: "orbiton";
+  src: url("../fonts/Orbitron-SemiBold.ttf");
+}
+
+a {
+  max-height: 2em;
+  max-width: 7em;
+  justify-content: center;
+}
