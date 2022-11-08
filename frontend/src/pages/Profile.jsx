@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 export default function Profile({ authorized }) {
   if (!authorized) {
@@ -11,15 +11,18 @@ export default function Profile({ authorized }) {
         <div className="row">
           <div className="col">
             <nav aria-label="nav-link" className="bg-light rounded-3 p-3 mb-4">
-              <ol className="breadcrumb mb-0">
+            <ol className="breadcrumb mb-0" id="text">
                 <li className="breadcrumb-item">
-                  <a href="/scoreCard">Scorecard</a>
+                  <Link to="/scoreCard">Scorecard</Link>
+                </li>
+                <li className="breadcrumb-item" aria-current="page">
+                  <Link to="/"> profile</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  User Profile
+                  <Link to="/history">history</Link>
                 </li>
-                <li className="breadcrumb-item" aria-current= "page">
-                  <a href="/history">history</a>
+                <li className="breadcrumb-item active" aria-current="page">
+                  <Link to="/Stats">statistics</Link>
                 </li>
               </ol>
             </nav>
@@ -31,10 +34,10 @@ export default function Profile({ authorized }) {
             <div className="card mb-4">
               <div className="card-body text-center">
                 <img
-                  // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
                   // src="images/people.svg"
                   // src="images/helmet-wallpapers-28627-1101838.jpg"
-                  src="/images/blondes_22.png"
+                  // src="/images/blondes_22.png"
                   alt="avatar"
                   className="rounded-circle img-fluid"
                   style={{ width: "150px" }}

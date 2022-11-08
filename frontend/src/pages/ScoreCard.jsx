@@ -37,14 +37,14 @@ export default function ScoreCard(props) {
     setSelects(e.target.value);
   }
 
-  const [ setData] = useState();
+  const [setData] = useState();
 
   async function submit() {
     let geefPar = [];
     golfData[+selects].courses[0].holes.map((hole) => geefPar.push(hole.par));
 
     let pakScore = [];
-    score.scores.map((score) => pakScore.push(score*1));
+    score.scores.map((score) => pakScore.push(score * 1));
 
     let arr3 = [];
     for (let e in pakScore) {
@@ -52,27 +52,24 @@ export default function ScoreCard(props) {
         arr3.push(pakScore[e]);
       }
     }
-    
+
     let som = 0;
     for (let e = 0; e < arr3.length; e++) {
       som += arr3[e] - geefPar[e];
     }
 
     try {
-      const {data} = await axios.post(
-        "http://localhost:3001/scores",
-        {
-          coursID: selects*1 + 1 ,
-          scores: arr3.toString(),
-          result: som,
-        }
-      );
+      const { data } = await axios.post("http://localhost:3001/scores", {
+        coursID: selects * 1 + 1,
+        scores: arr3.toString(),
+        result: som,
+      });
       setData(data);
     } catch (err) {
       console.log(err);
     }
-
-    prompt(`you played: ${som}`);
+    
+    alert(`you played: ${som}`);
   }
 
   return (
@@ -88,7 +85,7 @@ export default function ScoreCard(props) {
         />
         {isShown && (
           <Table
-             index="1"
+            index="1"
             startRange="0"
             endRange="9"
             course={golfData[+selects].courses[0]}

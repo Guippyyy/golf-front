@@ -10,8 +10,6 @@ export default function HistoryField(props) {
 
   return (
     <>
-
-      
       <div className="kont" id="scroll">
         {scores.map((score) => (
           
@@ -23,10 +21,10 @@ export default function HistoryField(props) {
 
             </span>
             <span className="grid-vak-naam" id="text">{golfData[score.coursID-1].name}</span>
-            <span className="grid-vak-date" id="text">{score.createdAt}</span>
+            <span className="grid-vak-date" id="text">{new Date(score.createdAt).toLocaleDateString()}</span>
             
             <span className="grid-vak-result" id= "text">{score.result}</span>
-            <a className="grid-vak-button" href=":">show more</a>
+            <a className="grid-vak-button" href="/">show more</a>
           </div>
         ))}
       </div>

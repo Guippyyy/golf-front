@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import { Link } from "react-router-dom";
 import "../App.css";
 import HistoryField from "../components/HistoryField";
 import { getScores } from "../api/DataFetching"; 
@@ -28,13 +29,16 @@ export default function History(props){
             >
               <ol className="breadcrumb mb-0" id="text">
                 <li className="breadcrumb-item">
-                  <a href="/scoreCard">Scorecard</a>
+                  <Link to="/scoreCard">Scorecard</Link>
                 </li>
                 <li className="breadcrumb-item" aria-current="page">
-                  <a href="/"> profile</a>
+                  <Link to="/"> profile</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  <a href="/history">history</a>
+                  <Link to="/history">history</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  <Link to="/Stats">statistics</Link>
                 </li>
               </ol>
             </nav>

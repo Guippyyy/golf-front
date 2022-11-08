@@ -4,6 +4,7 @@ import ScoreCard from "./pages/ScoreCard";
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
 import History from "./pages/History"
+import Stats from "./pages/Stats";
 import { getGolfCourses } from "./api/DataFetching"
 import {  useEffect, useState } from "react";
 
@@ -24,11 +25,11 @@ export default function App() {
         <Routes>
           <Route exact path="/scoreCard" element={<ScoreCard data={golfData} />} />
           <Route
-            exact
-            path="/"
+            index
             element={<Profile authorized={true} />}
           />
           <Route exact path="/History" element ={<History data={golfData}/>} />
+          <Route exact path="/stats" element ={<Stats />} />
           <Route exact path="/Login" element={<Login />} />{" "}
         </Routes>{" "}
       </Router>{" "}

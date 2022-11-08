@@ -1,0 +1,25 @@
+.ol {
+  position: sticky;
+  top: 0;
+  text-align: center;
+  list-style-type: none;
+  text-decoration: none;
+}
+li {
+  display: inline;
+  position: relative;
+}
+
+.navi {
+  display: flex;
+  gap: 1em;
+  background-color: gainsboro;
+  max-width: 1000px;
+  height: 100%;
+  border: 1px solid;
+
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
