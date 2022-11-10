@@ -4,21 +4,23 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <>
+    <div className="outerNavi">
       <div className="navi">
-        <ol className="ol" id="text">
-          <li>
+        <ul id="text">
+          <li >
             <Link to="/scoreCard">Scorecard</Link>
           </li>
-          <li aria-current="page">
-            <Link to="/"> profile</Link>
+          <li >
+            <Link to="/" className="liPR"> profile</Link>
           </li>
-          <li aria-current="page">
+          <li className="liHI">
             <Link to="/history">history</Link>
           </li>
-          <li aria-current="page">
+          <li className="liSTA">
             <Link to="/Stats">statistics</Link>
           </li>
-        </ol>
+        </ul>
+      </div>
       </div>
     </>
   );

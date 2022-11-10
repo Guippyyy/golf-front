@@ -1,5 +1,6 @@
 import React from "react";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import Navbar from "../components/navBar";
 
 export default function Profile({ authorized }) {
   if (!authorized) {
@@ -7,27 +8,8 @@ export default function Profile({ authorized }) {
   }
   return (
     <section style={{ backgroundcolor: "#eee" }} id="text">
-      <div className="container py-5">
-        <div className="row">
-          <div className="col">
-            <nav aria-label="nav-link" className="bg-light rounded-3 p-3 mb-4">
-            <ol className="breadcrumb mb-0" id="text">
-                <li className="breadcrumb-item">
-                  <Link to="/scoreCard">Scorecard</Link>
-                </li>
-                <li className="breadcrumb-item" aria-current="page">
-                  <Link to="/"> profile</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  <Link to="/history">history</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  <Link to="/Stats">statistics</Link>
-                </li>
-              </ol>
-            </nav>
-          </div>
-        </div>
+      
+        <Navbar/>
 
         <div className="row kont">
           <div className="col-lg-4">
@@ -237,7 +219,6 @@ export default function Profile({ authorized }) {
             </div>
           </div>
         </div>
-      </div>
     </section>
   );
 }

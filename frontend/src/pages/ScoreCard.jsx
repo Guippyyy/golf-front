@@ -59,7 +59,7 @@ export default function ScoreCard(props) {
     }
 
     try {
-      const { data } = await axios.post("http://localhost:3001/scores", {
+      const { data } = await axios.post("http://localhost:3001/api/scores", {
         coursID: selects * 1 + 1,
         scores: arr3.toString(),
         result: som,

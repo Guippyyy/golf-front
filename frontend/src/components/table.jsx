@@ -55,7 +55,7 @@ export default function Table(props) {
                 placeholder="name"
               />
             </td>
-            {course.holes.slice(startRange, endRange).map((hole,i) => (
+            {course.holes.slice(startRange, endRange).map((hole) => (
               <td key={hole.number}>
                 <input
                   className="form-control"

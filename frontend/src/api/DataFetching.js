@@ -4,7 +4,7 @@ const host = "http://localhost:3001"
 
 export function getGolfCourses(callback) {
   return axios
-  .get(`${host}/courses`)
+  .get(`${host}/api/courses`)
   .then(res => {
     callback(res.data)
   })
@@ -13,7 +13,7 @@ export function getGolfCourses(callback) {
 
 export function getScores(callback) {
   return axios
-  .get(`${host}/scores`)
+  .get(`${host}/api/scores`)
   .then(res => {
     callback(res.data)
   })
