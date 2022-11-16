@@ -43,13 +43,13 @@
   margin-bottom: auto;
 
   max-width: 800px;
-  height: 140px;
+  min-height: 140px;
 
   display: grid;
 
   gap: 0rem;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .grid-vak-logo {
@@ -80,6 +80,12 @@
   grid-row-end: 3;
 }
 
+.grid-table-review {
+  grid-row: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
 @font-face {
   font-family: "orbiton";
   src: url("../fonts/Orbitron-SemiBold.ttf");
@@ -89,4 +95,13 @@ a {
   max-height: 2em;
   max-width: 7em;
   justify-content: center;
+}
+
+.showMore {
+  border: none;
+  background-color: inherit;
+  color: orange;
+  width: 100px;
+  height: 25px;
+  display: inline-block;
 }

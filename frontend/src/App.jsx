@@ -31,10 +31,10 @@ export default function App() {
           />
           <Route exact path="/History" element ={<History data={golfData}/>} />
           <Route exact path="/stats" element ={<Stats />} />
-          <Route exact path="/Login" element={<Login />} />{" "}
+          <Route exact path="/Login" element={<Login />} />
           <Route exact path="*" element={<NotFound />} />
-        </Routes>{" "}
-      </Router>{" "}
+        </Routes>
+      </Router>
     </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./table.css"
 export default function Table(props) {
   const startRange = props.startRange * 1;
   const endRange = +props.endRange;
@@ -50,9 +51,7 @@ export default function Table(props) {
               <input
                 className="form-control"
                 id="inputs"
-                value={score.name}
-                disabled
-                placeholder="name"
+
               />
             </td>
             {course.holes.slice(startRange, endRange).map((hole) => (
@@ -66,12 +65,12 @@ export default function Table(props) {
               </td>
             ))}
           </tr>
-          <tr>
+          {/* <tr>
             <td bgcolor="lightgray">marker</td>
             {course.holes.slice(startRange, endRange).map((_, __) => (
               <td bgcolor="lightgray" border-color="lightgray"></td>
             ))}
-          </tr>
+          </tr> */}
         </tbody>
       </table>
     </div>

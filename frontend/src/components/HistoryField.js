@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import "../App.css";
 import "../pages/history.css";
 import PaginatedItems from "../components/paginate";
+import Collapsible from "./Collapsible";
 export default function HistoryField(props) {
   const scores = props.scores;
   const [golfData] = useState(props.golfData);
 
+
+  
+
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
+
+
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
@@ -39,9 +45,11 @@ export default function HistoryField(props) {
             <span className="grid-vak-result" id="text">
               {score.result}
             </span>
-            <a className="grid-vak-button" href="/">
-              show more
-            </a>
+            
+            <span className="grid-table-review">
+              <Collapsible golfData={golfData} scoreData={scoresSliced} tel = {score.coursID}/>
+            </span>
+            
           </div>
         ))}
         <div>
