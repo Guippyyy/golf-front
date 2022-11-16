@@ -1,13 +1,14 @@
 import React from "react";
+import ScoreRow from "./ScoreRow";
 import "./table.css"
 export default function Table(props) {
   const startRange = props.startRange * 1;
   const endRange = +props.endRange;
   const course = props.course;
   const distances = props.colours.split(",");
-  const score = props.score;
   const handleScore = props.handleScore;
-
+  const score = props.score;
+  const score2 = props.score2;
   return (
     <div>
       <table className="box" id="center" style={{ backgroundColor: "white" }}>
@@ -51,26 +52,11 @@ export default function Table(props) {
               <input
                 className="form-control"
                 id="inputs"
-
+                disabled
               />
             </td>
-            {course.holes.slice(startRange, endRange).map((hole) => (
-              <td key={hole.number}>
-                <input
-                  className="form-control"
-                  id="inputs"
-                  value={score.scores[hole.number - 1]}
-                  onChange={(e) => handleScore(hole.number, e.target.value)}
-                />
-              </td>
-            ))}
+            <ScoreRow course={course} startRange={startRange} endRange={endRange} handleScore={handleScore} score={score} score2={score2}/>
           </tr>
-          {/* <tr>
-            <td bgcolor="lightgray">marker</td>
-            {course.holes.slice(startRange, endRange).map((_, __) => (
-              <td bgcolor="lightgray" border-color="lightgray"></td>
-            ))}
-          </tr> */}
         </tbody>
       </table>
     </div>

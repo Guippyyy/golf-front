@@ -13,6 +13,7 @@ export default function ScoreCard(props) {
     scores: Array(18).fill(undefined),
   });
 
+
   function handleScore(holeNumber, updatedScore) {
     score.scores[holeNumber - 1] = updatedScore;
     setScore(score);
@@ -84,6 +85,7 @@ export default function ScoreCard(props) {
           selects={selects}
         />
         {isShown && (
+          <>
           <Table
             index="1"
             startRange="0"
@@ -91,10 +93,13 @@ export default function ScoreCard(props) {
             course={golfData[+selects].courses[0]}
             colours={golfData[+selects].colours}
             score={score}
+ 
             handleScore={handleScore}
           />
+          </>
         )}
         {isShown2 && (
+          <>
           <Table
             index="2"
             startRange="9"
@@ -104,6 +109,7 @@ export default function ScoreCard(props) {
             score={score}
             handleScore={handleScore}
           />
+          </>
         )}
       </div>
       <button className="btn btn-info btn-sm" id="button" onClick={submit}>
