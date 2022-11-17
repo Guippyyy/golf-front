@@ -22,7 +22,7 @@
 
 .logos {
   max-width: 140px;
-  max-height: 120px;
+  max-height: 80px;
 }
 
 #logo-golf {
@@ -48,4 +48,7 @@
   justify-self: center;
   grid-row-start: 1;
   grid-row-end: 3;
+}
+.bg {
+  background-color: "white" !important;
 }

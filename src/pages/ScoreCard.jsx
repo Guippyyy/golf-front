@@ -3,33 +3,34 @@ import { useState } from "react";
 import Table from "../components/table";
 import Header from "../components/Header";
 import axios from "axios";
+import useGolfCourses   from "../api/DataFetching/useGolfCourses.js";
 
-export default function ScoreCard(props) {
+export default function ScoreCard() {
   const [isShown, setIsShown] = useState(true); //btn1
   const [isShown2, setIsShown2] = useState(true); //btn2
   const [selects, setSelects] = useState(0);
-  const [golfData] = useState(props.data);
+
   const [score, setScore] = useState({
     scores: Array(18).fill(undefined),
   });
 
-
+  const {golfData, loading, error} = useGolfCourses("http://localhost:3001/api/courses");
   function handleScore(holeNumber, updatedScore) {
     score.scores[holeNumber - 1] = updatedScore;
     setScore(score);
   }
 
-  function handleClick1() {
+  function show1_9() {
     setIsShown(true);
     setIsShown2(false);
   }
 
-  function handleClick2() {
+  function show10_18() {
     setIsShown(false);
     setIsShown2(true);
   }
 
-  function handleClick3() {
+  function show18() {
     setIsShown(true);
     setIsShown2(true);
   }
@@ -73,14 +74,18 @@ export default function ScoreCard(props) {
     alert(`you played: ${som}`);
   }
 
+  if(loading) return <h1>Loading...</h1>
+  if(error) return <h1>ERROR</h1>
+  
   return (
     <>
-      <div className="kont">
+    {console.log(golfData)}
+      <div className="vak">
         <Header
           golfData={golfData}
-          handleClick1={handleClick1}
-          handleClick2={handleClick2}
-          handleClick3={handleClick3}
+          handleClick1={show1_9}
+          handleClick2={show10_18}
+          handleClick3={show18}
           handleSelect={handleSelect}
           selects={selects}
         />
@@ -91,7 +96,7 @@ export default function ScoreCard(props) {
             startRange="0"
             endRange="9"
             course={golfData[+selects].courses[0]}
-            colours={golfData[+selects].colours}
+            colours={golfData[+selects]?.colours}
             score={score}
  
             handleScore={handleScore}
@@ -104,8 +109,8 @@ export default function ScoreCard(props) {
             index="2"
             startRange="9"
             endRange="18"
-            course={golfData[+selects].courses[0]}
-            colours={golfData[+selects].colours}
+            course={golfData[+selects]?.courses[0]}
+            colours={golfData[+selects]?.colours}
             score={score}
             handleScore={handleScore}
           />

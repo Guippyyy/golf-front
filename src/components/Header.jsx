@@ -10,12 +10,12 @@ export default function Header(props) {
   const handleClick3 = props.handleClick3;
   const handleSelect = props.handleSelect;
   const selects = props.selects;
-  const sym = golfData[selects].image;
+  const sym = golfData[selects]?.image;
   const navigate = useNavigate();
 
   return (
-    <div>
-      <div className="box3" style={{ backgroundColor: "white" }}>
+    <div className="bg">
+      <div className="box3 bg">
         <h3 id="text">Scorecard</h3>
         <label htmlFor="course"></label>
         <select

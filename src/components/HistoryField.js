@@ -25,13 +25,13 @@ export default function HistoryField(props) {
 
   return (
     <>
-      <div className="kont" id="scroll">
+      <div className="vak" id="scroll">
         {scoresSliced.map((score) => (
           <div className="vakken" style={{ backgroundColor: "white" }}>
             <span className="logos2 grid-vak-logo" id="span1">
               <img
                 id="logo-golf2"
-                src={`${golfData[score.coursID - 1].image}`}
+                src={`${golfData[score.coursID - 1]?.image}`}
                 alt="y"
               />
             </span>

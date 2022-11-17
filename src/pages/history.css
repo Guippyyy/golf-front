@@ -1,4 +1,4 @@
-.kont {
+.vak {
   height: 900px;
   max-width: 1100px;
   margin-left: auto;
@@ -12,7 +12,7 @@
   overflow-y: scroll;
 }
 
-.kont::-webkit-scrollbar {
+.vak::-webkit-scrollbar {
   display: none;
 }
 

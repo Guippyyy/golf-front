@@ -1,5 +1,4 @@
 import React from 'react'
-import { useState } from 'react';
 
 export default function ScoreRow(props) {
     const course = props.course
@@ -21,7 +20,7 @@ export default function ScoreRow(props) {
     <>
     {scoreRowMaker(score, score2)}
     {console.log(scoreX)}
-    {course.holes.slice(startRange, endRange).map((hole) => (
+    {course?.holes.slice(startRange, endRange).map((hole) => (
         <td key={hole.number}>
           <input
             className="form-control"

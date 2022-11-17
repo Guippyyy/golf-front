@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../App.css";
 import HistoryField from "../components/HistoryField";
-import { getScores } from "../api/DataFetching";
+import useGolfCourses  from "../api/DataFetching/useGolfCourses.js";
+import { useScores } from "../api/DataFetching/FetchScores";
 import Navbar from "../components/navBar";
 
 export default function History(props) {
-  const [golfData] = useState(props.data);
-  const [scoreData, setScoreData] = useState([]);
-
-  useEffect(() => {
-    getScores(setScoreData);
-  }, []);
-
-  if(scoreData.length === 0){
-    return (<h1>LOADING...</h1>)
-  }
+  
+  const {golfData, loading, error} = useGolfCourses();
+  const {scoreData, loading2, error2} = useScores();
+  if (loading || loading2) return <h1>Loading...</h1>
+  if (error || error2) return <h1>Error</h1>
 
   scoreData.sort((a, b) => b.id - a.id);
 

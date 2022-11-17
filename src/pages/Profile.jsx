@@ -11,7 +11,7 @@ export default function Profile({ authorized }) {
       
         <Navbar/>
 
-        <div className="row kont">
+        <div className="row vak">
           <div className="col-lg-4">
             <div className="card mb-4">
               <div className="card-body text-center">

@@ -21,3 +21,7 @@
 .boxStats::-webkit-scrollbar {
   display: none;
 }
+
+.width {
+  width: 1fr;
+}

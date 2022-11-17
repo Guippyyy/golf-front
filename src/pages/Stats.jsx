@@ -4,7 +4,7 @@ import "../pages/Stats.css";
 import Navbar from "../components/navBar";
 import LineChart from "../components/LineChart";
 
-import { UserData } from "../api/data.js";
+import { UserData } from "../api/MockData/data.js";
 
 export default function Stats() {
   const [userData] = useState({
@@ -19,7 +19,7 @@ export default function Stats() {
       <Navbar />
 
       <div className="boxStats">
-      <div style={{width: "1fr" }}>
+      <div className="width">
         <LineChart chartData={userData} />
         </div>
       </div>
