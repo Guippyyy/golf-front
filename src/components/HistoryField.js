@@ -1,27 +1,31 @@
 import React, { useState } from "react";
 import "../App.css";
-import "../pages/history.css";
+import "../styles/history.css";
 import PaginatedItems from "../components/paginate";
 import Collapsible from "./Collapsible";
-export default function HistoryField(props) {
-  const scores = props.scores;
-  const [golfData] = useState(props.golfData);
+import useGolfCourses from "../api/DataFetching/useGolfCourses";
+import { useScores } from "../api/DataFetching/FetchScores";
 
-
+export default function HistoryField() {
   
-
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
 
-
+  const {scoreData, loading , error} = useScores();
+  const {golfData, loading2 , error2} = useGolfCourses();
+  if (loading || loading2) return <h1>loading...</h1>
+  if (error || error2) return <h1>error...</h1>
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);
   }
 
+  scoreData.sort((a,b) => b.id-a.id);
+
+
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
-  const scoresSliced = scores.slice(indexOfFirst, indexOfLast);
+  const scoresSliced = scoreData.slice(indexOfFirst, indexOfLast);
 
   return (
     <>
@@ -36,7 +40,7 @@ export default function HistoryField(props) {
               />
             </span>
             <span className="grid-vak-naam" id="text">
-              {golfData[score.coursID - 1].name}
+              {golfData[score.coursID - 1]?.name}
             </span>
             <span className="grid-vak-date" id="text">
               {new Date(score.createdAt).toLocaleDateString()}
@@ -47,7 +51,7 @@ export default function HistoryField(props) {
             </span>
             
             <span className="grid-table-review">
-              <Collapsible golfData={golfData} scoreData={scoresSliced} tel = {score.coursID}/>
+              <Collapsible golfData={golfData} scoreData={scoresSliced} tel={score.coursID}/>
             </span>
             
           </div>
@@ -55,7 +59,7 @@ export default function HistoryField(props) {
         <div>
           <PaginatedItems
             scoresPerPage={postsPerPage}
-            total={scores.length}
+            total={scoreData.length}
             paginate={paginate}
           />
         </div>

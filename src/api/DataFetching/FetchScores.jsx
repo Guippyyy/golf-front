@@ -3,25 +3,24 @@ import axios from 'axios';
 const host = "http://localhost:3001"
 
 export function useScores() {
-    const [scoreData, setScoreData] = useState([])
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+  const [scoreData, setScoreData] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   
-    useEffect(() => {
-      axios.get(`${host}/api/scores`)
-      .then((res) => {
-        setScoreData(res.data);
-      })
-      .catch((error) =>{
+  useEffect(() => {
+    const fetchData = async () => {
+      try{
+        const reponse = await axios.get(`${host}/api/scores`);
+        setScoreData(reponse.data);
+      } catch(error){
         setError(error);
-      })
-      .finally(() => {
+      } finally{
         setLoading(false)
-      })
-    }, [])
+      }
+    }
+
+    fetchData();
+  }, []);
   
-     return { scoreData, loading, error};
-  
-  
-  
-   }
+  return { scoreData, loading, error};  
+}

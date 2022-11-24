@@ -1,19 +1,15 @@
-import React from "react";
-import "../components/pagination.css"
+import React, {useMemo} from "react";
+import "../styles/pagination.css"
 
-export default function PaginatedItems({ scoresPerPage, total, paginate }) {
-  const pageNumber = [];
+export default function PaginatedItems({ total, scoresPerPage ,paginate }) {
 
-  for (let i = 1; i <= Math.ceil(total / scoresPerPage); i++) {
-    pageNumber.push(i);
-  }
-
+  const pageNumber = useMemo(() => pages(scoresPerPage, total), [scoresPerPage, total])
   return (
     <>
       <nav>
         <ul className="nav-list">
           {pageNumber.map((num) => (
-            <li key={num} className="page-item">
+            <li  className="page-item">
               <button onClick={() => paginate(num)}  className="page-link">
                 {num}
               </button>
@@ -23,4 +19,13 @@ export default function PaginatedItems({ scoresPerPage, total, paginate }) {
       </nav>
     </>
   );
+}
+
+function pages(scoresPerPage, total) {
+  const pageNumber = [];
+  for (let i = 1; i <= Math.ceil(total / scoresPerPage); i++) {
+    console.log("is this running???????")
+    pageNumber.push(i);
+  }
+  return pageNumber
 }

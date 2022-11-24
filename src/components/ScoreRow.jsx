@@ -1,35 +1,71 @@
 import React from 'react'
 
 export default function ScoreRow(props) {
+
     const course = props.course
     const startRange = props.startRange
     const endRange = props.endRange
     const handleScore = props.handleScore
     const score = props.score
-    const score2 = props.score2
-    let scoreX;
+    const HistoryScore = props.score2;
+    console.log(score)
+    console.log(HistoryScore)
 
-    function scoreRowMaker(score, score2) {
-        if (score2 === undefined)
-            scoreX = score
-        else if (score === undefined)
-            scoreX = score2
-    }
+
+    if(HistoryScore !== undefined)
+      console.log(makeHistoryScoreGreatAgain(HistoryScore));
+
+    
+
+    let sliced = course?.hole.slice(startRange, endRange);
 
   return (
     <>
-    {scoreRowMaker(score, score2)}
-    {console.log(scoreX)}
-    {course?.holes.slice(startRange, endRange).map((hole) => (
+    {sliced.map((hole) => (
         <td key={hole.number}>
-          <input
-            className="form-control"
-            id="inputs"
-            value={scoreX.scores[hole.number - 1]}
-            onChange={(e) => handleScore(hole.number, e.target.value)}
-          />
+          {showOrNoShow(score, HistoryScore, handleScore,hole)}
         </td>
       ))}
     </>
   )
+}
+
+
+
+function showOrNoShow(score , HistoryScore, handleScore, hole){
+  if(HistoryScore === undefined){
+    return (
+      <input
+        className="form-control"
+        id="inputs"
+        onChange={(e) => handleScore(hole.number, e.target.value)}
+      />
+    )
+  }
+  else if (score === undefined){
+    for (let i = 0; i < HistoryScore.length; i++) {
+      for (let j = 0; j < HistoryScore[i] ; j++) {
+        return (
+          <input
+          className="form-control"
+          id="inputs"
+          value = {HistoryScore[j]}
+          disabled
+          />
+        )
+      }
+    }
+  }
+
+}
+
+
+function makeHistoryScoreGreatAgain(historyScore){
+
+  const HolyHistoryScore = [];
+  for (let i = 0; i < historyScore.length; i++) {
+    HolyHistoryScore.push(historyScore[i].split(','));
+  }
+
+  return HolyHistoryScore;
 }

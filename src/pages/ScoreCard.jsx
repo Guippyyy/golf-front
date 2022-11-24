@@ -14,7 +14,9 @@ export default function ScoreCard() {
     scores: Array(18).fill(undefined),
   });
 
-  const {golfData, loading, error} = useGolfCourses("http://localhost:3001/api/courses");
+  const {golfData, loading, error} = useGolfCourses();
+
+
   function handleScore(holeNumber, updatedScore) {
     score.scores[holeNumber - 1] = updatedScore;
     setScore(score);
@@ -39,7 +41,7 @@ export default function ScoreCard() {
     setSelects(e.target.value);
   }
 
-  const [setData] = useState();
+  const [data , setData] = useState();
 
   async function submit() {
     let geefPar = [];
@@ -79,13 +81,13 @@ export default function ScoreCard() {
   
   return (
     <>
-    {console.log(golfData)}
+    {console.log(golfData[+selects].course[0])}
       <div className="vak">
         <Header
           golfData={golfData}
-          handleClick1={show1_9}
-          handleClick2={show10_18}
-          handleClick3={show18}
+          show1_9={show1_9}
+          show10_18={show10_18}
+          show18={show18}
           handleSelect={handleSelect}
           selects={selects}
         />
@@ -95,10 +97,9 @@ export default function ScoreCard() {
             index="1"
             startRange="0"
             endRange="9"
-            course={golfData[+selects].courses[0]}
+            course={golfData[+selects].course[0]}
             colours={golfData[+selects]?.colours}
             score={score}
- 
             handleScore={handleScore}
           />
           </>
@@ -109,7 +110,7 @@ export default function ScoreCard() {
             index="2"
             startRange="9"
             endRange="18"
-            course={golfData[+selects]?.courses[0]}
+            course={golfData[+selects].course[0]}
             colours={golfData[+selects]?.colours}
             score={score}
             handleScore={handleScore}
@@ -117,7 +118,7 @@ export default function ScoreCard() {
           </>
         )}
       </div>
-      <button className="btn btn-info btn-sm" id="button" onClick={submit}>
+      <button className="btn btn-info btn-sm" id="button" data-cy="submit" onClick={submit}>
         submit
       </button>
     </>

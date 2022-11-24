@@ -1,80 +1,40 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
-import Navbar from "../components/navBar";
+import LogoutButton from "../components/Logout";
+import { useAuth0 } from "@auth0/auth0-react";
 
-export default function Profile({ authorized }) {
-  if (!authorized) {
-    return <Navigate to="/login" />;
+export default function Profile() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <div>Loading ...</div>;
   }
-  return (
-    <section style={{ backgroundcolor: "#eee" }} id="text">
-      
-        <Navbar/>
 
+  return (
+    isAuthenticated && (
+    <section style={{ backgroundcolor: "#eee" }} id="text">
         <div className="row vak">
           <div className="col-lg-4">
             <div className="card mb-4">
               <div className="card-body text-center">
                 <img
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
-                  // src="images/people.svg"
-                  // src="images/helmet-wallpapers-28627-1101838.jpg"
-                  // src="/images/blondes_22.png"
-                  alt="avatar"
-                  className="rounded-circle img-fluid"
-                  style={{ width: "150px" }}
+                src={user.picture} alt={user.name}
+                  // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
+                  // // src="images/people.svg"
+                  // // src="images/helmet-wallpapers-28627-1101838.jpg"
+                  // // src="/images/blondes_22.png"
+                  // alt="avatar"
+                  // className="rounded-circle img-fluid"
+                  // style={{ width: "150px" }}
                 ></img>
-                <h5 className="my-3">Guillaume De Craene</h5>
+                <h5 className="my-3"> {user.nickname}</h5>
                 <p className="text-muted mb-1">member</p>
                 <p className="text-muted mb-4">golfclub (name) Belgium</p>
-                <div className="d-flex justify-content-center mb-2">
-                  <button type="button" className="btn btn-primary">
-                    Follow
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-outline-primary ms-1"
-                  >
-                    Message
-                  </button>
-                </div>
               </div>
             </div>
             <div className="card mb-4 mb-lg-0">
               <div className="card-body p-0">
                 <ul className="list-group list-group-flush rounded-3">
-                  <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <i className="fas fa-globe fa-lg text-warning"></i>
-                    <p className="mb-0"></p>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <i
-                      className="fab fa-github fa-lg"
-                      style={{ color: "#333333" }}
-                    ></i>
-                    <p className="mb-0"></p>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <i
-                      className="fab fa-twitter fa-lg"
-                      style={{ color: "#55acee" }}
-                    ></i>
-                    <p className="mb-0"></p>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <i
-                      className="fab fa-instagram fa-lg"
-                      style={{ color: "#ac2bac" }}
-                    ></i>
-                    <p className="mb-0"></p>
-                  </li>
-                  <li className="list-group-item d-flex justify-content-between align-items-center p-3">
-                    <i
-                      className="fab fa-facebook-f fa-lg"
-                      style={{ color: "#3b5998" }}
-                    ></i>
-                    <p className="mb-0"></p>
-                  </li>
+                  <LogoutButton/>
                 </ul>
               </div>
             </div>
@@ -87,7 +47,7 @@ export default function Profile({ authorized }) {
                     <p className="mb-0">Full Name</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">Guillaume De Craene</p>
+                    <p className="text-muted mb-0"> {user.nickname}</p>
                   </div>
                 </div>
                 <hr></hr>
@@ -96,7 +56,7 @@ export default function Profile({ authorized }) {
                     <p className="mb-0">Email</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">example@example.com</p>
+                    <p className="text-muted mb-0">{user.email}</p>
                   </div>
                 </div>
                 <hr></hr>
@@ -114,7 +74,7 @@ export default function Profile({ authorized }) {
                     <p className="mb-0">Mobile</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">(098) 765-4321</p>
+                    <p className="text-muted mb-0">{user.phone_number}</p>
                   </div>
                 </div>
                 <hr></hr>
@@ -123,87 +83,12 @@ export default function Profile({ authorized }) {
                     <p className="mb-0">Address</p>
                   </div>
                   <div className="col-sm-9">
-                    <p className="text-muted mb-0">Ronse Belgium</p>
+                    <p className="text-muted mb-0">{user.address}</p>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-md-6">
-                <div className="card mb-4 mb-md-0">
-                  <div className="card-body">
-                    <p className="mb-4">Statistics</p>
-                    <p className="mb-1" style={{ fontSize: ".77rem" }}>
-                      Hole in one
-                    </p>
-                    <div className="progress rounded" style={{ height: "5px" }}>
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "80%" }}
-                        aria-valuenow="80"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p className="mt-4 mb-1" style={{ fontSize: ".77rem" }}>
-                      albatros
-                    </p>
-                    <div className="progress rounded" style={{ height: "5px" }}>
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "72%" }}
-                        aria-valuenow="72"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p className="mt-4 mb-1" style={{ fontSize: ".77rem" }}>
-                      Eagle
-                    </p>
-                    <div className="progress rounded" style={{ height: "5px" }}>
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "89%" }}
-                        aria-valuenow="89"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p className="mt-4 mb-1" style={{ fontSize: ".77rem" }}>
-                      Birdie
-                    </p>
-                    <div className="progress rounded" style={{ height: "5px" }}>
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "55%" }}
-                        aria-valuenow="55"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p className="mt-4 mb-1" style={{ fontSize: ".77rem" }}>
-                      par
-                    </p>
-                    <div
-                      className="progress rounded mb-2"
-                      style={{ height: "5px" }}
-                    >
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        style={{ width: "66%" }}
-                        aria-valuenow="66"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            
               <div className="col-md-6">
                 <div className="card mb-4 mb-md-0">
                   <div className="card-body" style={{ width: "200px" }}>
@@ -218,7 +103,8 @@ export default function Profile({ authorized }) {
               </div>
             </div>
           </div>
-        </div>
     </section>
+    )
   );
+  
 }

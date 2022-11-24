@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./header.css";
+import "../styles/header.css";
 
 
 export default function Header(props) {
   const golfData = props.golfData;
-  const handleClick1 = props.handleClick1;
-  const handleClick2 = props.handleClick2;
-  const handleClick3 = props.handleClick3;
+  const show1_9 = props.show1_9;
+  const show10_18 = props.show10_18;
+  const show18 = props.show18;
   const handleSelect = props.handleSelect;
   const selects = props.selects;
   const sym = golfData[selects]?.image;
@@ -15,7 +15,7 @@ export default function Header(props) {
 
   return (
     <div className="bg">
-      <div className="box3 bg">
+      <div className="box3 bg" style={{backgroundColor: "white"}}>
         <h3 id="text">Scorecard</h3>
         <label htmlFor="course"></label>
         <select
@@ -32,21 +32,21 @@ export default function Header(props) {
           <button
             className="btn btn-info btn-sm"
             id="button"
-            onClick={handleClick1}
+            onClick={show1_9}
           >
             1-9 holes
           </button>
           <button
             className=" btn btn-info btn-sm"
             id="button"
-            onClick={handleClick2}
+            onClick={show10_18}
           >
             10-18 holes
           </button>
           <button
             className="btn btn-info btn-sm"
             id="button"
-            onClick={handleClick3}
+            onClick={show18}
           >
             18 holes
           </button>
@@ -54,7 +54,7 @@ export default function Header(props) {
             className="btn btn-warning btn-sm"
             id="button"
             onClick={() => {
-              navigate("/");
+              navigate("/profile");
             }}
           >
             Profile

@@ -1,7 +1,7 @@
-import "../components/navBar.css"
+import "../styles/navBar.css"
 import { Link } from "react-router-dom";
 
-function Navbar() {
+export default function Navbar() {
   return (
     <>
     <div className="outerNavi">
@@ -11,13 +11,16 @@ function Navbar() {
             <Link to="/scoreCard">Scorecard</Link>
           </li>
           <li >
-            <Link to="/" className="liPR"> profile</Link>
+            <Link to="/profile"> profile</Link>
           </li>
-          <li className="liHI">
+          <li>
             <Link to="/history">history</Link>
           </li>
-          <li className="liSTA">
+          <li>
             <Link to="/Stats">statistics</Link>
+          </li>
+          <li>
+            <Link to="/Settings">settings</Link>
           </li>
         </ul>
       </div>
@@ -25,5 +28,3 @@ function Navbar() {
     </>
   );
 }
-
-export default Navbar;

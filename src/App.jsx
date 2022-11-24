@@ -6,6 +6,8 @@ import Login from "./pages/Login"
 import History from "./pages/History"
 import Stats from "./pages/Stats";
 import NotFound from "./pages/NotFound";
+import Instellingen from "./pages/instellingen";
+import Page from "./components/Page"
 
 export default function App() {
 
@@ -15,12 +17,13 @@ export default function App() {
         <Routes>
           <Route exact path="/scoreCard" element={<ScoreCard />} />
           <Route
-            index
-            element={<Profile authorized={true} />}
+            exact path="/profile"
+            element={<Page><Profile/> </Page>}
           />
-          <Route exact path="/History" element ={<History/>} />
-          <Route exact path="/stats" element ={<Stats />} />
-          <Route exact path="/Login" element={<Login />} />
+          <Route exact path="/History" element ={<Page> <History/> </Page>} />
+          <Route exact path="/stats" element ={<Page><Stats/></Page>} />
+          <Route index element={<Login />} />
+          <Route exact path="/Settings" element={<Page><Instellingen /></Page>} />
           <Route exact path="*" element={<NotFound />} />
         </Routes>
       </Router>

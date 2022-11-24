@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 const host = "http://localhost:3001"
+// const host = "https://vichogent.be:3001"
 
 export default function useGolfCourses() {
 

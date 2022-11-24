@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import "../pages/Stats.css";
-
-import Navbar from "../components/navBar";
+import "../styles/Stats.css";
 import LineChart from "../components/LineChart";
 
 import { UserData } from "../api/MockData/data.js";
@@ -16,8 +14,6 @@ export default function Stats() {
 
   return (
     <>
-      <Navbar />
-
       <div className="boxStats">
       <div className="width">
         <LineChart chartData={userData} />
