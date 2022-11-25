@@ -18,13 +18,6 @@ export default function Profile() {
               <div className="card-body text-center">
                 <img
                 src={user.picture} alt={user.name}
-                  // src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6.webp"
-                  // // src="images/people.svg"
-                  // // src="images/helmet-wallpapers-28627-1101838.jpg"
-                  // // src="/images/blondes_22.png"
-                  // alt="avatar"
-                  // className="rounded-circle img-fluid"
-                  // style={{ width: "150px" }}
                 ></img>
                 <h5 className="my-3"> {user.nickname}</h5>
                 <p className="text-muted mb-1">member</p>
@@ -59,43 +52,17 @@ export default function Profile() {
                     <p className="text-muted mb-0">{user.email}</p>
                   </div>
                 </div>
-                <hr></hr>
-                <div className="row">
-                  <div className="col-sm-3">
-                    <p className="mb-0">Home Club</p>
-                  </div>
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">(097) 234-5678</p>
-                  </div>
-                </div>
-                <hr></hr>
-                <div className="row">
-                  <div className="col-sm-3">
-                    <p className="mb-0">Mobile</p>
-                  </div>
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{user.phone_number}</p>
-                  </div>
-                </div>
-                <hr></hr>
-                <div className="row">
-                  <div className="col-sm-3">
-                    <p className="mb-0">Address</p>
-                  </div>
-                  <div className="col-sm-9">
-                    <p className="text-muted mb-0">{user.address}</p>
-                  </div>
-                </div>
+                
               </div>
             </div>
             
               <div className="col-md-6">
                 <div className="card mb-4 mb-md-0">
-                  <div className="card-body" style={{ width: "200px" }}>
+                  <div className="card-body" style={{ width: "250px" }}>
                     <img
                       src="images/logo.png"
                       alt="placeholder"
-                      width="310px"
+                      width="250px"
                       padding-top="100px"
                     />
                   </div>

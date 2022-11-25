@@ -4,10 +4,12 @@ import Table from "../components/table";
 import Header from "../components/Header";
 import axios from "axios";
 import useGolfCourses   from "../api/DataFetching/useGolfCourses.js";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function ScoreCard() {
-  const [isShown, setIsShown] = useState(true); //btn1
-  const [isShown2, setIsShown2] = useState(true); //btn2
+  const { isAuthenticated } = useAuth0();
+  const [isShown, setIsShown] = useState(true);
+  const [isShown2, setIsShown2] = useState(true); 
   const [selects, setSelects] = useState(0);
 
   const [score, setScore] = useState({
@@ -45,7 +47,7 @@ export default function ScoreCard() {
 
   async function submit() {
     let geefPar = [];
-    golfData[+selects].courses[0].holes.map((hole) => geefPar.push(hole.par));
+    golfData[+selects].course[0].hole.map((hole) => geefPar.push(hole.par));
 
     let pakScore = [];
     score.scores.map((score) => pakScore.push(score * 1));
@@ -80,6 +82,7 @@ export default function ScoreCard() {
   if(error) return <h1>ERROR</h1>
   
   return (
+    isAuthenticated && (
     <>
     {console.log(golfData[+selects].course[0])}
       <div className="vak">
@@ -122,5 +125,6 @@ export default function ScoreCard() {
         submit
       </button>
     </>
+    )
   );
 }

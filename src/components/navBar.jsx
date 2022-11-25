@@ -20,7 +20,7 @@ export default function Navbar() {
             <Link to="/Stats">statistics</Link>
           </li>
           <li>
-            <Link to="/Settings">settings</Link>
+            <Link to="/Settings">play</Link>
           </li>
         </ul>
       </div>

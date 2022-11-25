@@ -1,4 +1,4 @@
-import React from "react";
+import {React, useCallback} from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/header.css";
 
@@ -12,6 +12,9 @@ export default function Header(props) {
   const selects = props.selects;
   const sym = golfData[selects]?.image;
   const navigate = useNavigate();
+  const handleGoHome = useCallback(() => {
+    navigate('/profile', { replace: true });
+  }, [navigate]);
 
   return (
     <div className="bg">
@@ -53,9 +56,7 @@ export default function Header(props) {
           <button
             className="btn btn-warning btn-sm"
             id="button"
-            onClick={() => {
-              navigate("/profile");
-            }}
+            onClick={() => handleGoHome()}
           >
             Profile
           </button>

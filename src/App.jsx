@@ -9,13 +9,15 @@ import NotFound from "./pages/NotFound";
 import Instellingen from "./pages/instellingen";
 import Page from "./components/Page"
 
+import PrivateRoute from "./components/PrivateRoutes";
+
 export default function App() {
 
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path="/scoreCard" element={<ScoreCard />} />
+          <Route exact path="/scoreCard" element={<ScoreCard />}/>
           <Route
             exact path="/profile"
             element={<Page><Profile/> </Page>}

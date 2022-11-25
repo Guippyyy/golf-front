@@ -47,7 +47,9 @@ export default function HistoryField() {
             </span>
 
             <span className="grid-vak-result" id="text">
-              {score.result}
+
+              { score.result > 0 ? '+'+score.result : score.result }
+
             </span>
             
             <span className="grid-table-review">
