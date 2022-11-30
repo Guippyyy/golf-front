@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import {useAuth0} from "@auth0/auth0-react";
  
-export default function Instellingen() {
+export default function Play() {
   const { isAuthenticated } = useAuth0();
   return (
     isAuthenticated && (

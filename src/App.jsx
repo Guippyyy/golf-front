@@ -1,31 +1,66 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ScoreCard from "./pages/ScoreCard";
-import Profile from "./pages/Profile"
-import Login from "./pages/Login"
-import History from "./pages/History"
+import Profile from "./pages/Profile";
+import History from "./pages/History";
 import Stats from "./pages/Stats";
 import NotFound from "./pages/NotFound";
-import Instellingen from "./pages/instellingen";
-import Page from "./components/Page"
-
-import PrivateRoute from "./components/PrivateRoutes";
+import Play from "./pages/play";
+import Page from "./components/Page";
+import LoginButton from "./authentication/LoginButton";
+import RequireAuth from "./authentication/RequireAuth";
 
 export default function App() {
-
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path="/scoreCard" element={<ScoreCard />}/>
+          <Route exact path="/scoreCard" element={<ScoreCard />} />
           <Route
-            exact path="/profile"
-            element={<Page><Profile/> </Page>}
+            exact
+            path="/profile"
+            element={
+              <RequireAuth>
+                <Page>
+                  <Profile />
+                </Page>
+              </RequireAuth>
+            }
           />
-          <Route exact path="/History" element ={<Page> <History/> </Page>} />
-          <Route exact path="/stats" element ={<Page><Stats/></Page>} />
-          <Route index element={<Login />} />
-          <Route exact path="/Settings" element={<Page><Instellingen /></Page>} />
+          <Route
+            exact
+            path="/History"
+            element={
+              <RequireAuth>
+                <Page>
+                  <History />
+                </Page>
+              </RequireAuth>
+            }
+          />
+          <Route
+            exact
+            path="/stats"
+            element={
+              <RequireAuth>
+                <Page>
+                  <Stats />
+                </Page>
+              </RequireAuth>
+            }
+          />
+          <Route index element={<LoginButton />} />
+          <Route
+            exact
+            path="/play"
+            element={
+              <RequireAuth>
+                <Page>
+                  <Play />
+                </Page>
+              </RequireAuth>
+            }
+          />
           <Route exact path="*" element={<NotFound />} />
         </Routes>
       </Router>
