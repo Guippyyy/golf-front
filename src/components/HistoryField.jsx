@@ -3,18 +3,14 @@ import "../App.css";
 import "../styles/history.css";
 import PaginatedItems from "../components/paginate";
 import Collapsible from "./Collapsible";
-import useGolfCourses from "../api/DataFetching/useGolfCourses";
-import { useScores } from "../api/DataFetching/FetchScores";
 
-export default function HistoryField() {
+export default function HistoryField(props) {
   
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(6);
 
-  const {scoreData, loading , error} = useScores();
-  const {golfData, loading2 , error2} = useGolfCourses();
-  if (loading || loading2) return <h1>loading...</h1>
-  if (error || error2) return <h1>error...</h1>
+  const golfData = props.golfData
+  const scoreData = props.scores
 
   function paginate(pageNumber) {
     setCurrentPage(pageNumber);

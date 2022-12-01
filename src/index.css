@@ -15,7 +15,7 @@ code {
 #bg {
   background-image: url("../images/golf1.jpg") !important;
   background-repeat: no-repeat, repeat;
-  /* background-size: cover; */
+  background-size: cover;
 }
 #text {
   font-family: "orbiton";

@@ -43,8 +43,6 @@ export default function ScoreCard() {
     setSelects(e.target.value);
   }
 
-  const [data , setData] = useState();
-
   async function submit() {
     let geefPar = [];
     golfData[+selects].course[0].hole.map((hole) => geefPar.push(hole.par));
@@ -65,12 +63,11 @@ export default function ScoreCard() {
     }
 
     try {
-      const { data } = await axios.post("http://localhost:3001/api/scores", {
+      await axios.post("http://localhost:3001/api/scores", {
         coursID: selects * 1 + 1,
         scores: arr3.toString(),
         result: som,
       });
-      setData(data);
     } catch (err) {
       console.log(err);
     }

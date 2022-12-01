@@ -24,7 +24,6 @@ export default function PaginatedItems({ total, scoresPerPage ,paginate }) {
 function pages(scoresPerPage, total) {
   const pageNumber = [];
   for (let i = 1; i <= Math.ceil(total / scoresPerPage); i++) {
-    console.log("is this running???????")
     pageNumber.push(i);
   }
   return pageNumber
