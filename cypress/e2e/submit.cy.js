@@ -1,7 +1,9 @@
-
+require = ('../support/commands')
 describe('empty spec', () => {
+  beforeEach(() => {
+    cy.login();
+  });
   it('passes', () => {
-    cy.visit('http://localhost:3000/scoreCard');
-    cy.get('[data-cy=submit]').click()
+    cy.visit('http://localhost:3000/profile'); 
   })
 })

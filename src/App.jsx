@@ -7,15 +7,15 @@ import Stats from "./pages/Stats";
 import NotFound from "./pages/NotFound";
 import Play from "./pages/play";
 import Page from "./components/Page";
-import LoginButton from "./authentication/LoginButton";
 import RequireAuth from "./authentication/RequireAuth";
+import Login from "./pages/Login";
 
 export default function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path="/scoreCard" element={<ScoreCard />} />
+          <Route exact path="/scoreCard" element={(<RequireAuth> <ScoreCard /></RequireAuth> )} />
           <Route
             exact
             path="/profile"
@@ -25,6 +25,14 @@ export default function App() {
                   <Profile />
                 </Page>
               </RequireAuth>
+            }
+          />
+          <Route
+            index
+            element={
+              <Page>
+                <Login />
+              </Page>
             }
           />
           <Route
@@ -49,7 +57,7 @@ export default function App() {
               </RequireAuth>
             }
           />
-          <Route index element={<LoginButton />} />
+          {/* <Route index element={<LoginButton />} /> */}
           <Route
             exact
             path="/play"

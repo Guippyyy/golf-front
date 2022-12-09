@@ -1,6 +1,8 @@
 import "../styles/navBar.css"
 import { Link } from "react-router-dom";
 
+import AuthenticationButton from "../authentication/AuthenticationButton";
+
 export default function Navbar() {
   return (
     <>
@@ -20,7 +22,10 @@ export default function Navbar() {
             <Link to="/Stats">statistics</Link>
           </li>
           <li>
-            <Link to="/play">play</Link>
+            <Link data-cy='play' to="/play">play</Link>
+          </li>
+          <li>
+            <AuthenticationButton/>
           </li>
         </ul>
       </div>

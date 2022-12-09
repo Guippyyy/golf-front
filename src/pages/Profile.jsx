@@ -1,6 +1,6 @@
 import React from "react";
-import LogoutButton from "../authentication/LogoutButton";
 import { useAuth0 } from "@auth0/auth0-react";
+
 
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
@@ -12,7 +12,7 @@ export default function Profile() {
     const { name, picture, nickname, email } = user;
 
     return (
-      isAuthenticated && (
+       (
         <section style={{ backgroundcolor: "#eee" }} id="text">
           <div className="row vak">
             <div className="col-lg-4">
@@ -22,13 +22,6 @@ export default function Profile() {
                   <h5 className="my-3"> {nickname}</h5>
                   <p className="text-muted mb-1">member</p>
                   <p className="text-muted mb-4">golfclub (name) Belgium</p>
-                </div>
-              </div>
-              <div className="card mb-4 mb-lg-0">
-                <div className="card-body p-0">
-                  <ul className="list-group list-group-flush rounded-3">
-                    <LogoutButton />
-                  </ul>
                 </div>
               </div>
             </div>
@@ -55,7 +48,7 @@ export default function Profile() {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              {/* <div className="col-md-6">
                 <div className="card mb-4 mb-md-0">
                   <div className="card-body" style={{ width: "250px" }}>
                     <img
@@ -66,7 +59,7 @@ export default function Profile() {
                     />
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -74,3 +67,4 @@ export default function Profile() {
     );
   }
 }
+

@@ -7,8 +7,8 @@ export default function FormReservation() {
   const schema = yup.object().shape({
     Rname: yup.string().required("name is required"),
     Remail: yup.string().email().required("email is required"),
-    Ramount: yup.number().required("hcp is required"),
-    Rcourse: yup.string().required(),
+    Ramount: yup.string().required("hcp is required"),
+    Rcourse: yup.string().required("select course"),
     Rtime: yup.string().required(),
     Rdate: yup.string().required(),
   });
@@ -49,7 +49,7 @@ export default function FormReservation() {
           {...register("Remail")}
         />
 
-<p>{errors.Rname?.message}</p>
+<p>{errors.Remail?.message}</p>
 
         <label id="text">Course</label>
         <br />
@@ -59,7 +59,7 @@ export default function FormReservation() {
           <option value="2">Oudenaarde</option>
           <option value="3">Damme</option>
         </select>
-        <p>{errors.Rname?.message}</p>
+        <p>{errors.Rcourse?.message}</p>
         <label id="text">players</label>
         <br />
         <input
@@ -69,7 +69,7 @@ export default function FormReservation() {
           className="form-control"
           {...register("Ramount")}
         />
-  <p>{errors.Rname?.message}</p>
+  <p>{errors.Ramount?.message}</p>
         <label id="text">Date</label>
         <br />
         <input
@@ -78,7 +78,7 @@ export default function FormReservation() {
           className="form-control"
           {...register("Rdate")}
         />
-<p>{errors.Rname?.message}</p>
+<p>{errors.Rdate?.message}</p>
         <label id="text">Time</label>
         <br />
         <select id="i" className="form-control" {...register("Rtime")}>
@@ -92,19 +92,19 @@ export default function FormReservation() {
           <option value="7">10.50</option>
           <option value="8">11.10</option>
           <option value="9">11.30</option>
-          <option value="10">11.50</option>
-          <option value="10">12.10</option>
-          <option value="10">12.30</option>
-          <option value="10">12.50</option>
-          <option value="10">13.10</option>
-          <option value="10">13.30</option>
-          <option value="10">13.50</option>
-          <option value="10">14.10</option>
-          <option value="10">14.30</option>
-          <option value="10">14.50</option>
-          <option value="10">15.10</option>
+          <option value="11">11.50</option>
+          <option value="12">12.10</option>
+          <option value="13">12.30</option>
+          <option value="14">12.50</option>
+          <option value="15">13.10</option>
+          <option value="16">13.30</option>
+          <option value="17">13.50</option>
+          <option value="18">14.10</option>
+          <option value="19">14.30</option>
+          <option value="20">14.50</option>
+          <option value="21">15.10</option>
         </select>
-        <p></p>
+        <p>{errors.Ttime?.message}</p>
         
         <input type="submit" className="btn btn-success" id="text" />
         <br />

@@ -79,7 +79,8 @@ export default function ScoreCard() {
   if(error) return <h1>ERROR</h1>
   
   return (
-    isAuthenticated && (
+    isAuthenticated && 
+     (
     <>
     {console.log(golfData[+selects].course[0])}
       <div className="vak">

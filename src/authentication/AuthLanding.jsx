@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { Navigate } from 'react-router-dom';
 import Error from '../Error';
-import LoginButton from './LoginButton';
+import Login from '../pages/Login'
 
 export default function AuthLanding() {
   const { error, isAuthenticated, isLoading } = useAuth0();
@@ -15,7 +15,7 @@ export default function AuthLanding() {
             Sorry, we were unable to sign you in, the error below might be useful.
           </p>
           <Error error={error} />
-          <LoginButton />
+          <Login/>
         </div>
       </div>
     </div>;
@@ -32,7 +32,7 @@ export default function AuthLanding() {
           <div className="col">
             <h1>Login required</h1>
             <p>You need to login to access this page.</p>
-            <LoginButton />
+            <Login />
           </div>
         </div>
       </div>

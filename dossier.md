@@ -12,8 +12,8 @@
 
 **Logingegevens**
 
-- Gebruikersnaam/e-mailadres:
-- Wachtwoord:
+- Gebruikersnaam/e-mailadres: root
+- Wachtwoord: 12345abcdE
 
 > Vul eventueel aan met extra accounts voor administrators of andere rollen.
 
@@ -37,7 +37,7 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
 
   - [x] heeft meerdere componenten - dom & slim (naast login/register)
   - [x] definieert constanten (variabelen, functies en componenten) buiten de component
-  - [ ] minstens één form met validatie (naast login/register)
+  - [x] minstens één form met validatie (naast login/register)
   - [x] login systeem (eigen of extern zoals bv. Auth0)
         <br />
 
@@ -121,10 +121,13 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
 
 > Wat is de extra technologie? Hoe werkt het? Voeg een link naar het npm package toe!
 
+- chart JS
+
 ### Web Services
 
 > Wat is de extra technologie? Hoe werkt het? Voeg een link naar het npm package toe!
-> prisma
+
+- prisma
 
 ## Testresultaten
 

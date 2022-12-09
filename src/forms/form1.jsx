@@ -7,8 +7,9 @@ export default function FormTournament() {
   const schema = yup.object().shape({
     Tname: yup.string().required("name is required"),
     Temail: yup.string().email().required("email is required"),
-    Thcp: yup.number("bro").required("hcp is required"),
-    Tcourse: yup.string().required(),
+  Thcp: yup.string().required("hcp is required"),
+    Tcourse: yup.string().required("select course"),
+    Ttime : yup.string().required("select time"),
   });
 
   const {
@@ -62,7 +63,7 @@ export default function FormTournament() {
       <label id="text">hcp</label>
       <br />
       <input
-        type="text"
+        type="number"
         placeholder="hcp"
         name="Thcp"
         className="form-control"
@@ -74,15 +75,16 @@ export default function FormTournament() {
 
       <label id="text">hour slot</label>
       <br />
-      <select id="i" className="form-control">
+      <select id="i" className="form-control" {...register("Ttime")}>
         <option>Select hour Slot</option>
         <option value="1">ochtend</option>
         <option value="2">voormiddag</option>
         <option value="3">middag</option>
       </select>
+      <p>{errors.Ttime?.message}</p>
       <br />
       <br />
-      <input type="submit" className="btn btn-success" id="text" />
+      <input data-cy="submit1" type="submit" className="btn btn-success" id="text" />
     </form>
   );
 }

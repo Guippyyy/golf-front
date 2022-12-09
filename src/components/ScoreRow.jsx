@@ -24,7 +24,7 @@ export default function ScoreRow(props) {
             <input
               className="form-control"
               id="inputs"
-              value={HistoryScore[i]}
+              value={HistoryScore[i][i]}
               disabled
             />
           );
