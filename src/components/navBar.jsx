@@ -25,7 +25,7 @@ export default function Navbar() {
             <Link data-cy='play' to="/play">play</Link>
           </li>
           <li>
-            <AuthenticationButton/>
+            <AuthenticationButton />
           </li>
         </ul>
       </div>

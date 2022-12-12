@@ -106,7 +106,7 @@ export default function FormReservation() {
         </select>
         <p>{errors.Ttime?.message}</p>
         
-        <input type="submit" className="btn btn-success" id="text" />
+        <input data-cy="submit2" type="submit" className="btn btn-success" id="text" />
         <br />
       </form>
     </>

@@ -17,7 +17,7 @@ export default function History() {
     isAuthenticated && (
     <>
       <div>
-        <HistoryField scores={scoreData} golfData={golfData}/>
+        <HistoryField scores={scoreData} golfData={golfData} />
       </div>
     </>
     )

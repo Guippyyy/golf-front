@@ -7,7 +7,7 @@ import useGolfCourses   from "../api/DataFetching/useGolfCourses.js";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function ScoreCard() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [isShown, setIsShown] = useState(true);
   const [isShown2, setIsShown2] = useState(true); 
   const [selects, setSelects] = useState(0);
@@ -63,11 +63,17 @@ export default function ScoreCard() {
     }
 
     try {
-      await axios.post("http://localhost:3001/api/scores", {
+      const token = await getAccessTokenSilently()
+      await axios.post("http://localhost:3001/api/scores", { 
         coursID: selects * 1 + 1,
         scores: arr3.toString(),
         result: som,
-      });
+        
+      },
+      {
+        headers: {Authorization: `Bearer ${token}` },
+      }
+      );
     } catch (err) {
       console.log(err);
     }

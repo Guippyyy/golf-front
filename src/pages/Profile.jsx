@@ -9,7 +9,7 @@ export default function Profile() {
     return <div>Loading ...</div>;
   }
   if (isAuthenticated) {
-    const { name, picture, nickname, email } = user;
+    const { name, picture, nickname, email} = user;
 
     return (
        (

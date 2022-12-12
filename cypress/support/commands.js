@@ -1,35 +1,10 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 Cypress.Commands.add('goToHomePage', () => { // 👈 1
   cy.visit('http://localhost:3000/');
 });
 
-Cypress.Commands.add('login', () => { 
+Cypress.Commands.add('login', () => {
   cy.goToHomePage();
-//   cy.clearLocalStorage(); // 👈 2
+  cy.clearLocalStorage(); // 👈 2
 
   // 👇 3
   Cypress.log({
@@ -44,7 +19,7 @@ Cypress.Commands.add('login', () => {
   // 👇 4
   cy.request({
     method: 'POST',
-    url: Cypress.env('auth_url'),
+    url: 'https://dev-8cpbbh21w2gsf8yo.us.auth0.com/oauth/token',
     body: {
       grant_type: 'password',
       username: Cypress.env('auth_username'),
@@ -90,12 +65,3 @@ Cypress.Commands.add('login', () => {
       });
   });
 });
-
-Cypress.Commands.add('logout', () => {
-  Cypress.log({
-    displayName: 'logout',
-  });
-  cy.goToHomePage();
-  cy.get('[data-cy=logout_btn]').click();
-});
-

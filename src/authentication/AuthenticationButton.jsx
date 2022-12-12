@@ -11,7 +11,7 @@ export default function AuthenticationButton() {
 
     return (
       
-        <div id="login-logout">
+        <div id="login-logout" >
           <LogoutButton />
         </div>
     
