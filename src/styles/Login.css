@@ -1,4 +1,4 @@
-.bg-image-vertical {
+/* .bg-image-vertical {
   position: relative;
   overflow: hidden;
   background-repeat: no-repeat;
@@ -36,4 +36,36 @@
   margin-right: auto;
   margin-bottom: auto;
   padding: 10px;
+}
+ */
+
+.login-vak {
+  border: 1px solid;
+  border-radius: 15px 15px 15px 15px;
+  background-color: aliceblue;
+  margin-top: 20px;
+
+  padding: 10px;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+
+  max-width: 800px;
+  min-height: 700px;
+
+  display: grid;
+
+  gap: 0rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+#foto {
+  height: 600px;
+  width: 1090px;
+
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
 }
