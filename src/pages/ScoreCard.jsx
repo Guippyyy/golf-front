@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import axios from "axios";
 import useGolfCourses   from "../api/DataFetching/useGolfCourses.js";
 import { useAuth0 } from "@auth0/auth0-react";
+import { getAPIUrl } from "../Utils";
 
 export default function ScoreCard() {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -64,7 +65,9 @@ export default function ScoreCard() {
 
     try {
       const token = await getAccessTokenSilently()
-      await axios.post("http://localhost:3001/api/scores", { 
+      // TODO: Move this to a seperate function
+      const host = getAPIUrl();
+      await axios.post(`${host}/api/scores`, { 
         coursID: selects * 1 + 1,
         scores: arr3.toString(),
         result: som,

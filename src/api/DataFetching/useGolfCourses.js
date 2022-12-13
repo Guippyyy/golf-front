@@ -1,8 +1,7 @@
 
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-const host = "http://localhost:3001"
-// const host = "https://vichogent.be:3001"
+import { getAPIUrl } from '../../Utils';
 
 export default function useGolfCourses() {
 
@@ -13,6 +12,7 @@ export default function useGolfCourses() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const host = getAPIUrl();
         const response = await axios.get(`${host}/api/courses`);
         setGolfData(response.data) 
       } catch (error) {

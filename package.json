@@ -12,6 +12,7 @@
     "bootstrap": "^5.2.2",
     "chart.js": "^3.9.1",
     "jwt-decode": "^3.1.2",
+    "serve": "^14.1.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-chartjs-2": "^4.3.1",
@@ -27,6 +28,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:prod": "yarn build:dev && npx serve -s build",
+    "build:dev": "react-scripts build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
