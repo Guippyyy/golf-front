@@ -17,7 +17,6 @@ export default function App() {
         <Routes>
           <Route exact path="/scoreCard" element={(<RequireAuth> <ScoreCard /></RequireAuth> )} />
           <Route
-            exact
             path="/profile"
             element={
               <RequireAuth>
