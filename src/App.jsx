@@ -49,11 +49,9 @@ export default function App() {
             exact
             path="/stats"
             element={
-              <RequireAuth>
                 <Page>
                   <Stats />
                 </Page>
-              </RequireAuth>
             }
           />
           {/* <Route index element={<LoginButton />} /> */}
