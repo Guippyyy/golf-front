@@ -18,7 +18,7 @@ function LoginButton() {
       id='login-logout'
       onClick={handleLogin}
     >
-      Log In
+      Log In/Sign Up
     </span>
   );
 }
