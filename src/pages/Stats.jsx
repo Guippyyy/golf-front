@@ -1,27 +1,31 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/Stats.css";
-import LineChart from "../components/LineChart";
 import { useAuth0 } from "@auth0/auth0-react";
-import { UserData } from "../api/MockData/data.js";
+import LineChart from "../components/LineChart";
+import DoughnutChart from "../charts/DoughnutChart";
+import { useScores} from '../api/DataFetching/FetchScores'
 
 export default function Stats() {
   const { isAuthenticated } = useAuth0();
-  const [userData] = useState({
-    labels: UserData.map((e) => e.year),
-    datasets: [
-      { label: "users gained", data: UserData.map((e) => e.userGain) },
-    ],
-  });
-
+  const {scoreData} = useScores();
+  let c = scoreData.map(e => e.result)
+  let mn = Math.min(...c)
   return (
     isAuthenticated && (
-    <>
-      <div className="boxStats">
-      <div className="width">
-        <LineChart chartData={userData} />
+      <>
+        <div className="boxStats">
+          <div className="width">
+            <LineChart />
+          </div>
+          <div>
+            <DoughnutChart />
+          </div>
+          <div>
+            <div id='text' >total times played: {scoreData.length}</div>
+            <div id= 'text'>best score: {mn}</div>
+          </div>
         </div>
-      </div>
-    </>
+      </>
     )
   );
 }

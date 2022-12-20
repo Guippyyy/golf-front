@@ -13,8 +13,7 @@
 
   display: grid;
   gap: 0.5em;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: 50rem 30rem;
   overflow-y: scroll;
 }
 
@@ -23,5 +22,4 @@
 }
 
 .width {
-  width: 1fr;
 }

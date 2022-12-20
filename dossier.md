@@ -1,31 +1,37 @@
-# Guillaume De Craene (Studentennummer)
+# Guillaume De Craene (202185375)
 
 > Duid aan welke vakken je volgt en vermeld voor deze vakken de link naar jouw GitHub repository. In het geval je slechts één vak volgt, verwijder alle inhoud omtrent het andere vak.
 > Verwijder alle instructies (lijnen die starten met >)
 
 - [ ] Front-end Web Development
   - [GitHub repository](https://github.com/Web-IV/2223-frontendweb-Guippyyy)
-  - [Online versie](github.com/HOGENT-Web)
+  - [Online versie](https://two223-frontendweb-guippyyy.onrender.com/)
 - [ ] Web Services: GITHUB URL
   - [GitHub repository](https://github.com/Web-IV/2223-webservices-Guippyyy)
-  - [Online versie](github.com/HOGENT-Web)
+  - [Online versie](https://two223-webservices-guippyyy.onrender.com)
 
 **Logingegevens**
 
-- Gebruikersnaam/e-mailadres: root
+- Gebruikersnaam/e-mailadres: e2e-testing
 - Wachtwoord: 12345abcdE
-
-> Vul eventueel aan met extra accounts voor administrators of andere rollen.
 
 ## Projectbeschrijving
 
-een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
-
-> Omschrijf hier duidelijk waarover jouw project gaat. Voeg een domeinmodel (of EERD) toe om jouw entiteiten te verduidelijken.
+> Het is een platfrom waar je je scores kunt bij houden, en je kunt de scores herbekijken.
+> ![](../golf-pro/public/images/mermaid-0.png)
 
 ## Screenshots
 
-> Voeg enkele (nuttige!) screenshots toe die tonen wat de app doet.
+> 1-9 holes zichtbaar
+> ![](../golf-pro/public/images/Screenshot_20221220_064204.png)
+> 1-18 holes zichtbaar
+> ![](../golf-pro/public/images/Screenshot_20221220_064256.png)
+> geef 7 & 6 in en click submit
+> ![](../golf-pro/public/images/Screenshot_20221220_064337.png)
+> score is +6
+> ![](../golf-pro/public/images/Screenshot_20221220_064407.png)
+> score zichtbaar in history
+> ![](../golf-pro/public/images/Screenshot_20221220_064434.png)
 
 ## Behaalde minimumvereisten
 
@@ -62,10 +68,10 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
         <br />
 
 - **varia**
-  - [ ] een aantal niet-triviale testen (unit en/of e2e en/of ui)
-  - [ ] minstens één extra technologie
-  - [ ] duidelijke en volledige README.md
-  - [ ] volledig en tijdig ingediend dossier
+  - [x] een aantal niet-triviale testen (unit en/of e2e en/of ui)
+  - [x] minstens één extra technologie
+  - [] duidelijke en volledige README.md
+  - [x] volledig en tijdig ingediend dossier
 
 ### Web Services
 
@@ -85,13 +91,13 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
 
 - **servicelaag met een zekere complexiteit**
 
-  - [ ] bevat alle domeinlogica
+  - [x] bevat alle domeinlogica
   - [x] bevat geen SQL-queries of databank-gerelateerde code
         <br />
 
 - **REST-laag**
 
-  - [ ] meerdere routes met invoervalidatie
+  - [x] meerdere routes met invoervalidatie
   - [x] degelijke foutboodschappen
   - [ ] volgt de conventies van een RESTful API
   - [ ] bevat geen domeinlogica
@@ -99,11 +105,11 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
         <br />
 
 - **varia**
-  - [ ] een aantal niet-triviale testen (min. 1 controller >=80% coverage)
+  - [x] een aantal niet-triviale testen (min. 1 controller >=80% coverage)
   - [x] minstens één extra technologie
   - [ ] duidelijke en volledige `README.md`
-  - [ ] maakt gebruik van de laatste ES6-features (object destructuring, spread operator...)
-  - [ ] volledig en tijdig ingediend dossier
+  - [x] maakt gebruik van de laatste ES6-features (object destructuring, spread operator...)
+  - [x] volledig en tijdig ingediend dossier
 
 ## Projectstructuur
 
@@ -121,13 +127,13 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
 
 > Wat is de extra technologie? Hoe werkt het? Voeg een link naar het npm package toe!
 
-- chart JS
+- chart JS / https://www.npmjs.com/package/chart.js?activeTab=readme
 
 ### Web Services
 
 > Wat is de extra technologie? Hoe werkt het? Voeg een link naar het npm package toe!
 
-- prisma
+- prisma / https://www.npmjs.com/package/prisma
 
 ## Testresultaten
 
@@ -135,19 +141,32 @@ een platform voor golfer om hun scores bij tehouden en te kunnnen hergebruiken
 
 > Schrijf hier een korte oplijsting en beschrijving van de geschreven testen
 
+- kijken of de applicatie draait
+- login en check of ik naar /profile kan gaan
+- login -> naar / play (forms) -> click submit -> ga na of form validatie werkt
+
 ### Web Services
 
 > Schrijf hier een korte oplijsting en beschrijving van de geschreven testen + voeg een screenshot van de coverage en uitvoering toe
+
+- post een score en verwacht ~ succes
+- post een score en verwacht ~ scores is required
+- get all scores
+- get all locations
+
+![](../golf-pro/public/images/test.png)
 
 ## Gekende bugs
 
 ### Front-end Web Development
 
 > Zijn er gekende bugs?
+> neen
 
 ### Web Services
 
 > Zijn er gekende bugs?
+> neen
 
 ## Wat is er verbeterd/aangepast?
 
