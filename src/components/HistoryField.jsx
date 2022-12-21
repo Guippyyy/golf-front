@@ -3,6 +3,7 @@ import "../App.css";
 import "../styles/history.css";
 import PaginatedItems from "../components/paginate";
 import Collapsible from "./Collapsible";
+import { v4 as uuid } from "uuid";
 export default function HistoryField(props) {
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,6 +21,7 @@ export default function HistoryField(props) {
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   const scoresSliced = scoreData.slice(indexOfFirst, indexOfLast);
+  console.log(scoresSliced)
 
   return (
     <>
@@ -47,7 +49,7 @@ export default function HistoryField(props) {
             </span>
             
             <span className="grid-table-review">
-              <Collapsible golfData={golfData} scoreData={scoresSliced} tel={score.coursID}/>
+              <Collapsible key={uuid()} golfData={golfData} scoreData={score} tel={score.coursID}/>
             </span>
             
           </div>

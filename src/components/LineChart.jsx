@@ -4,8 +4,9 @@ import { useScores} from '../api/DataFetching/FetchScores'
 import Chart from 'chart.js/auto';
 export default function LineChart() {
 
-  let {scoreData} = useScores();
-
+  let {scoreData, loading, error} = useScores();
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>ERROR</h1>;
   scoreData = {
     labels: scoreData.slice(-6).map((e) => new Date(e.createdAt).toLocaleDateString()),
     datasets: [

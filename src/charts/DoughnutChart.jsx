@@ -4,9 +4,9 @@ import { useScores} from '../api/DataFetching/FetchScores'
 import Chart from 'chart.js/auto';
 export default function DoughnutChart() {
     
-  let {scoreData} = useScores();
-  console.log(scoreData)
-
+  let {scoreData, loading, error} = useScores();
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <h1>ERROR</h1>;
   let x = scoreData.filter(e => e.coursID === 1).length
   let y = scoreData.filter(e => e.coursID === 2).length
   let z = scoreData.filter(e => e.coursID === 3).length

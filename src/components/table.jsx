@@ -2,6 +2,7 @@ import React from "react";
 import ScoreRow from "./ScoreRow";
 import "../styles/table.css"
 export default function Table(props) {
+  const readOnly = props.disabled;
   const startRange = props.startRange * 1;
   const endRange = +props.endRange;
 
@@ -9,8 +10,7 @@ export default function Table(props) {
   const distances = props.colours?.split(",");
   const handleScore = props.handleScore;
 
-  const score = props.score;
-  const score2 = props.score2;
+  const scores = props.scores;
 
   let sliced = course?.hole.slice(startRange, endRange);
 
@@ -61,13 +61,11 @@ export default function Table(props) {
               />
             </td>
             <ScoreRow 
-            course={course} 
+            key={props.key}
+            readOnly={readOnly}
             startRange={startRange} 
-            endRange={endRange} 
             handleScore={handleScore} 
-            score={score}
-            score2 = {score2}
-            
+            scores={scores}
             />
           </tr>
         </tbody>
