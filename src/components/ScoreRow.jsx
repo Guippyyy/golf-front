@@ -1,5 +1,5 @@
 import React from "react";
-
+import { v4 as uuid } from "uuid";
 export default function ScoreRow(props) {
   const readOnly = props.readOnly;
   const startRange = props.startRange;
@@ -10,7 +10,7 @@ export default function ScoreRow(props) {
   return (
     <>
           { [...Array(9)].map((_, i) => (
-          <td>
+          <td key={uuid()}>
             <input
               className="form-control"
               id="inputs"

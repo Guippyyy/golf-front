@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { v4 as uuid } from 'uuid';
+//import { v4 as uuid } from 'uuid';
 import Table from './table';
 export default function Collapsible(props) {
     const golfData = props.golfData
@@ -18,7 +18,7 @@ export default function Collapsible(props) {
     {open && ( 
       <div>
         <Table 
-            key={uuid()}
+            // key={uuid()}
             index="1"
             startRange="0"
             endRange="9"
@@ -28,7 +28,7 @@ export default function Collapsible(props) {
             scores = {scoreData.scores}
             />
         <Table index="2"
-            key={uuid()}
+            // key={uuid()}
             startRange="9"
             endRange="18"
             disabled={true}

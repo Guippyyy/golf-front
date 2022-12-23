@@ -27,7 +27,7 @@ export default function HistoryField(props) {
     <>
       <div className="vak" id="scroll">
         {scoresSliced.map((score) => (
-          <div className="vakken" style={{ backgroundColor: "white" }}>
+          <div key={uuid()} className="vakken" style={{ backgroundColor: "white" }}>
             <span className="logos2 grid-vak-logo" id="span1">
               <img
                 id="logo-golf2"

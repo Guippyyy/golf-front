@@ -1,5 +1,6 @@
 import {React, useCallback} from "react";
 import { useNavigate } from "react-router-dom";
+import { v4 as uuid } from 'uuid';
 import "../styles/header.css";
 
 
@@ -28,7 +29,7 @@ export default function Header(props) {
           onChange={handleSelect}
         >
           {golfData.map((golf, i) => (
-            <option value={i}>{golf.name}</option>
+            <option key={uuid()} value={i}>{golf.name}</option>
           ))}
         </select>
         <div className="grid-header-button1">

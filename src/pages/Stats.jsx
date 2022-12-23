@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Stats.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import LineChart from "../components/LineChart";
+import LineChart from "../charts/LineChart";
 import DoughnutChart from "../charts/DoughnutChart";
 import { useScores} from '../api/DataFetching/FetchScores'
 

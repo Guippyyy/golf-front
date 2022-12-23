@@ -1,6 +1,6 @@
 import React, {useMemo} from "react";
 import "../styles/pagination.css"
-
+import { v4 as uuid } from "uuid";
 export default function PaginatedItems({ total, scoresPerPage ,paginate }) {
 
   const pageNumber = useMemo(() => pages(scoresPerPage, total), [scoresPerPage, total])
@@ -9,7 +9,7 @@ export default function PaginatedItems({ total, scoresPerPage ,paginate }) {
       <nav>
         <ul className="nav-list">
           {pageNumber.map((num) => (
-            <li  className="page-item">
+            <li  key={uuid()} className="page-item">
               <button onClick={() => paginate(num)}  className="page-link">
                 {num}
               </button>
